@@ -1,15 +1,17 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { StackNavigator, TabNavigator } from 'react-navigation';
+import { routes } from 'constants';
+import OrgsPage from './orgs/OrgsPage';
+
+const AppNavigation = StackNavigator({
+  Orgs: {screen: OrgsPage},
+  AddOrg: {screen: AddOrgPage}
+});
 
 export default class App extends React.Component {
   render() {
-    return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-      </View>
-    );
+    return <AppNavigation />;
   }
 }
 
