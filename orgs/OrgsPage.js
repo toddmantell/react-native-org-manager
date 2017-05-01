@@ -17,7 +17,7 @@ class OrgsPage extends React.Component {
     selectOrg(org) {
         const {navigate} = this.props.navigation;
 
-        navigate(routes.OrgDetail, org);
+        navigate(routes.OrgDetail, {org});
     }
     static navigationOptions = {
         title: "Your Orgs"

@@ -12,7 +12,8 @@ export class OrgDetail extends React.Component {
         const {org} = this.props.navigation.state.params;
         return (
             <View style={styles.container}>
-                <Text>Org Name: {org.orgName}</Text>
+                <Text>Org Name: {org.orgFullName}</Text>
+                <Text>Org Name: {org.orgShortName}</Text>
                 <Text>Is Active: {org.isActive.toString()}</Text>
             </View>
         );
