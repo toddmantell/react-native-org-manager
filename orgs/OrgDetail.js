@@ -6,8 +6,8 @@ export class OrgDetail extends React.Component {
         super();
     }
     static navigationOptions = ({ navigation }) => ({
-    title: `${navigation.state.params.org.orgName}`,
-  });
+    title: navigation.state.params.org.orgName
+    });
     render() {
         const {org} = this.props.navigation.state.params;
         return (
@@ -20,12 +20,12 @@ export class OrgDetail extends React.Component {
 }
 
 const styles = StyleSheet.create({
-    flex: 1
+    container: {
+        flex: 1
+    }
 }); 
 
 OrgDetail.propTypes = {
-   func1: React.PropTypes.func.isRequired,
-   func2: React.PropTypes.func.isRequired
 }
 
 export default OrgDetail;

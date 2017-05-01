@@ -2,10 +2,10 @@ import React from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 
 const OrgRow = props => {
-        const {org} = this.props;
+        const {org} = props;        
         return (
-            <TouchableOpacity onPress={() => selectOrg(org)} style={styles.container}>
-                <Text style={styles.label}>{orgs.orgName}</Text>
+            <TouchableOpacity onPress={() => props.selectOrg(org)} style={styles.container}>
+                <Text style={styles.label}>{org.orgFullName}</Text>
             </TouchableOpacity>
         );
 }
@@ -38,8 +38,7 @@ const styles = StyleSheet.create({
 
 
 OrgRow.propTypes = {
-   func1: React.PropTypes.func.isRequired,
-   func2: React.PropTypes.func.isRequired
+
 }
 
 export default OrgRow;

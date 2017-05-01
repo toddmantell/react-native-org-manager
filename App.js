@@ -1,12 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { StackNavigator, TabNavigator } from 'react-navigation';
-import { routes } from 'constants';
+import { routes } from './constants';
 import OrgsPage from './orgs/OrgsPage';
+import OrgDetail from './orgs/OrgDetail';
 
 const AppNavigation = StackNavigator({
   Orgs: {screen: OrgsPage},
-  AddOrg: {screen: AddOrgPage}
+  OrgDetail: {screen: OrgDetail}
 });
 
 export default class App extends React.Component {
@@ -21,5 +22,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-  },
+  }
 });

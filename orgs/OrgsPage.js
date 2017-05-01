@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text, ScrollView, StyleSheet} from 'react-native';
 import {routes} from '../constants';
-import DataService from './DataService';
+import DataService from '../DataService';
 import OrgRow from './OrgRow';
 
 class OrgsPage extends React.Component {
@@ -11,36 +11,34 @@ class OrgsPage extends React.Component {
         this.state = {
             orgs: []
         }
-    }
-    componentWillMount() {
-        const {orgs} = this.state;
-        this.state.orgs = DataService.getOrgs();
 
-        this.setState({orgs});
+        this.selectOrg = this.selectOrg.bind(this);
     }
     selectOrg(org) {
         const {navigate} = this.props.navigation;
 
-        navigate(routes.Orgs, org);
+        navigate(routes.OrgDetail, org);
     }
     static navigationOptions = {
         title: "Your Orgs"
     };
     render() {
-        const {orgs} = this.state;
+        const orgs = DataService.getOrgs();        
         return (
-            <ScrollView style={styles.container}>
-                {orgs.map((org, index) => {
-                    return <OrgRow org={org} selectOrg={this.selectOrg} key={index} />
-                })}
-            </ScrollView>
+            <View style={styles.container}>
+                <ScrollView>
+                    {
+                        orgs.map((org, index) => {                            
+                        return <OrgRow org={org} selectOrg={this.selectOrg} key={index} />
+                    })}
+                </ScrollView>
+            </View>
         );
     }
 }
 
 const styles = StyleSheet.create({
-    container: {
-        marginTop: 40,        
+    container: {        
         backgroundColor: '#F7F7F7',
         flex: 1,
         justifyContent: 'flex-start'
